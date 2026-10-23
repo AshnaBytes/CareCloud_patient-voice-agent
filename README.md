@@ -130,4 +130,4 @@ Logging: final collected payload is logged to stdout on every registration (`FIN
 - Spanish support relies on the LLM prompt only (no separate Spanish voice/transcriber config).
 
 ## Next steps (if I had more time)
-Verify identity before updates; appointment scheduling tool with mock slots; Alembic migrations; API-key auth + rate limiting; encrypted fields and log redaction; per-field retry counters and call-quality metrics; CI pipeline; Spanish-specific transcriber/voice.
+Test end to end, if the records are saving successfully into database, Verify identity before updates; appointment scheduling tool with mock slots.
