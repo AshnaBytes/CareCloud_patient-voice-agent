@@ -1,0 +1,12 @@
+# Database. SQLite by default (file persists on disk/volume). For Postgres use e.g.
+# postgresql://user:pass@host:5432/dbname  (postgres:// is auto-normalised)
+DATABASE_URL=sqlite:///./data/patients.db
+
+# Shared secret Vapi sends with every webhook (set the same value in Vapi's "Server URL secret").
+# Leave empty to disable the check (local dev only).
+VAPI_SECRET=my_CareCloud_4rMq2aW6_secret
+
+# Insert one demo patient on first start when the table is empty
+SEED_DEMO_DATA=true
+
+LOG_LEVEL=INFO

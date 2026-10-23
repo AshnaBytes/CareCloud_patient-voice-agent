@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Registered Patients</title>
+<style>
+ body{font-family:system-ui,sans-serif;margin:24px;color:#1a1a1a}
+ h1{font-size:20px} table{border-collapse:collapse;width:100%;font-size:14px}
+ th,td{border-bottom:1px solid #e3e3e3;padding:8px 10px;text-align:left} th{background:#f6f6f6}
+ .muted{color:#777;font-size:13px} input{padding:6px 8px;margin-right:8px}
+</style></head><body>
+<h1>Registered Patients</h1>
+<p class="muted">Demo data only. Live from <code>GET /patients</code>. <span id="count"></span></p>
+<input id="q" placeholder="Filter by last name"><button id="go">Search</button> <button id="all">Reset</button>
+<div style="overflow-x:auto"><table><thead><tr>
+ <th>Name</th><th>DOB</th><th>Sex</th><th>Phone</th><th>Email</th><th>Address</th><th>Insurance</th><th>Language</th><th>Created (UTC)</th>
+</tr></thead><tbody id="rows"></tbody></table></div>
+<script>
+async function load(){
+  const q=document.getElementById('q').value.trim();
+  const r=await fetch('/patients'+(q?'?last_name='+encodeURIComponent(q):''));
+  const j=await r.json(); const tb=document.getElementById('rows'); tb.textContent='';
+  document.getElementById('count').textContent=(j.data||[]).length+' record(s)';
+  for(const p of j.data||[]){
+    const tr=document.createElement('tr');
+    const addr=[p.address_line_1,p.address_line_2,p.city,p.state+' '+p.zip_code].filter(Boolean).join(', ');
+    const ins=[p.insurance_provider,p.insurance_member_id].filter(Boolean).join(' / ');
+    [p.first_name+' '+p.last_name,p.date_of_birth,p.sex,p.phone_number,p.email||'',addr,ins,p.preferred_language,p.created_at]
+      .forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td)});
+    tb.appendChild(tr);
+  }
+}
+document.getElementById('go').onclick=load;
+document.getElementById('all').onclick=()=>{document.getElementById('q').value='';load()};
+load();
+</script></body></html>
