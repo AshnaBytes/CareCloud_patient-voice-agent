@@ -5,11 +5,23 @@ saved to a persistent database and exposed over a REST API. Calling back with th
 
 | | |
 |---|---|
-| **Phone number** | `+1 XXX XXX XXXX`  ← fill in |
-| **API base URL** | `https://YOUR-APP-URL`  ← fill in |
-| **Interactive API docs** | `https://YOUR-APP-URL/docs` |
-| **Dashboard (bonus)** | `https://YOUR-APP-URL/dashboard` |
-| **Repo** | `https://github.com/YOU/REPO` |
+| **Phone number** | `+1 (424) 441 2013` |
+| **API base URL** | `https://carecloud-patient-voice-agent.onrender.com` |
+| **Interactive API docs** | `https://carecloud-patient-voice-agent.onrender.com/docs` |
+| **Repo** | `https://github.com/AshnaBytes/CareCloud_patient-voice-agent` |
+
+**Dashboard (bonus)** 'Did not deploy yet,but can be seen by running the command:
+python -m http.server 5500 --directory static '
+
+## Testing status (please read)
+
+The system is deployed and working, but **it was not fully tested end to end** because of the time limit and limited Vapi credits.
+
+- Done: deployed on Render, Vapi assistant + 3 tools + webhook connected, automated tests (`pytest`), and one live test call (screenshots in `Submission_Notes.docx`).
+- First test call did not save: I gave a Pakistani address and the server correctly rejected it (US addresses/states/ZIPs only).
+- Not tested live: update-existing-patient flow, mid-call hang-up, and repeated edge cases.
+- Note: Render free tier may take ~50s to wake on the first request.
+
 
 ## Architecture
 
