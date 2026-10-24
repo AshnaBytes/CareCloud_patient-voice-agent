@@ -8,10 +8,9 @@ saved to a persistent database and exposed over a REST API. Calling back with th
 | **Phone number** | `+1 (424) 441 2013` |
 | **API base URL** | `https://carecloud-patient-voice-agent.onrender.com` |
 | **Interactive API docs** | `https://carecloud-patient-voice-agent.onrender.com/docs` |
+|**Dashboard**| `https://carecloud-patient-voice-agent.onrender.com/dashboard` |
 | **Repo** | `https://github.com/AshnaBytes/CareCloud_patient-voice-agent` |
 
-**Dashboard (bonus)** 'Did not deploy yet,but can be seen by running the command:
-python -m http.server 5500 --directory static '
 
 ## Testing status (please read)
 
